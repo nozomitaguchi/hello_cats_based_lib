@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+    mysql-for-test:
+        image: mysql:8.0.13
+        tmpfs:
+            - /var/lib/mysql
+        volumes:
+            - ./mysql/:/docker-entrypoint-initdb.d
+        ports:
+            - 3307:3306
+        environment:
+            - MYSQL_ROOT_PASSWORD=password
